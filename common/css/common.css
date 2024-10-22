@@ -1,0 +1,170 @@
+/* tutorial.css를 불러옵니다 */
+@import url("tutorial.css");
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#base_container {
+    width: 1920px;
+    height: 1000px;
+    transform-origin: top left;
+    position:relative;
+    overflow: hidden;
+}
+
+
+.base_layer {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    border: 0;
+    display: none;
+}
+
+.base_layer.show {
+    display: block;
+}
+
+.base_layer .base_dim {
+    position: absolute;
+    background: black;
+    opacity: 0.9;
+    width: 1920px;
+    height: 1020px;
+}
+
+.base_layer .base_content {
+    position: absolute;
+}
+
+.no-select {
+    user-select: none; /* 텍스트 선택을 방지 */
+    -webkit-user-select: none; /* Chrome, Safari용 */
+    -moz-user-select: none; /* Firefox용 */
+    -ms-user-select: none; /* Internet Explorer, Edge용 */
+}
+
+.event-de-active{
+    pointer-events: none;
+}
+
+.event-active {
+    pointer-events: auto;
+}
+
+.event-active-pointer {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.display_hidden {
+    display: none;
+    pointer-events: none;
+}
+
+.dim_black {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    top:0;
+    left: 0;
+    opacity: 0.55;
+    background: #000000;
+
+    pointer-events: auto;
+}
+
+.dim_white {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    top:0;
+    left: 0;
+    opacity: 0.6;
+    background: #FFF;
+
+    pointer-events: none;
+}
+
+.hover_big {
+    transition: transform 0.3s;
+}
+
+.hover_big:hover {
+    transform: scale(1.3);
+}
+
+.hover_small {
+    transition: transform 0.3s;
+}
+
+.hover_small:hover {
+    transform: scale(1.1);
+}
+
+.show_pop_up {
+    display: block;
+    z-index: 999;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.bg_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#topContainer {
+    position: absolute;
+    width: 1920px;
+    height: 73px;
+    flex-shrink: 0;
+}
+
+#topContainer .goal_btn_area {
+    position: absolute;
+    top: 7px;
+    right: 237px;
+    width: 177px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+#topContainer .tutorial_btn_area {
+    position: absolute;
+    top: 7px;
+    right: 30px;
+    width: 177px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+#topContainer .reset_btn_area {
+    position: absolute;
+    top: 858px;
+    right: 30px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#topContainer .reset_btn_area.active {
+    pointer-events: auto;
+}
+
+#topContainer .reset_btn_area > img:nth-child(1) {
+    display: none;
+}
+
+#topContainer .reset_btn_area.active > img:nth-child(1) {
+    display: block;
+}
+#topContainer .reset_btn_area.active > img:nth-child(2) {
+    display: none;
+}

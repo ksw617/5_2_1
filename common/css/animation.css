@@ -1,0 +1,49 @@
+:root {
+    --side-size: 420px;
+}
+
+.animate__common_side_off {
+    -webkit-animation-name: common_side_off;
+    animation-name: common_side_off
+}
+
+@-webkit-keyframes common_side_off {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--side-size)*-1), 0, 0);
+        transform: translate3d(calc(var(--side-size)*-1), 0, 0)
+    }
+}
+
+@keyframes common_side_off {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--side-size)*-1), 0, 0);
+        transform: translate3d(calc(var(--side-size)*-1), 0, 0)
+    }
+}
+
+.animate__common_side_on {
+    -webkit-animation-name: common_side_on;
+    animation-name: common_side_on
+}
+
+@-webkit-keyframes common_side_on {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--side-size)), 0, 0);
+        transform: translate3d(calc(var(--side-size)), 0, 0)
+    }
+}
+
+@keyframes common_side_on {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--side-size)), 0, 0);
+        transform: translate3d(calc(var(--side-size)), 0, 0)
+    }
+}

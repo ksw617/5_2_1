@@ -1,0 +1,63 @@
+.popup_area {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    border: 0;
+}
+
+.popup_area .img_area {
+    position: absolute;
+    top: 245px;
+    left: 477px;
+    width: 965px;
+    height: 509px;
+    flex-shrink: 0;
+}
+
+.popup_area .img_area  .close_btn_area {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.popup_reset_area {
+    position: absolute;
+    width: 1920px;
+    height: 1000px;
+    border: 0;
+}
+
+.popup_reset_area .img_area {
+    position: absolute;
+    top: 278px;
+    left: 630px;
+    width: 660px;
+    height: 444px;
+    flex-shrink: 0;
+}
+
+.popup_reset_area .img_area .no_btn_area {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    width: 260px;
+    height: 101px;
+    flex-shrink: 0;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+.popup_reset_area .img_area .yes_btn_area {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    width: 260px;
+    height: 101px;
+    flex-shrink: 0;
+    cursor: pointer;
+    pointer-events: auto;
+}

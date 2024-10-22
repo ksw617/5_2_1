@@ -1,0 +1,9 @@
+@import url('../font/gangwonEdu/gangwonEduPower.css');
+@import url('../font/pretendard/pretendard.css');
+@import url('../font/EsaManru/EsaManru.css');
+@import url('../font/nanumsquareround/nanumsquareround.min.css');
+
+@font-face {
+    font-family: 'ELECTRICAL_SAFETY_BOLD';
+    src: url('../font/ELECTRICAL_SAFETY_BOLD.TTF') format('truetype');
+}

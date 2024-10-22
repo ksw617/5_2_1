@@ -1,0 +1,106 @@
+.main_area .tutorial_btn_area {
+    position: absolute;
+    top: 7px;
+    right: 40px;
+    width: 177px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+.tutorial_area .tutorial_scene > * {
+    opacity: 0;
+}
+
+.tutorial_area .tutorial_scene.show > * {
+    opacity: 1;
+}
+
+.tutorial_area .arrow_left {
+    position: absolute;
+    width: 108px;
+    height: 108px;
+
+    right: 178px;
+    bottom: 31px;
+}
+
+.tutorial_area .arrow_btn {
+    cursor: pointer;
+}
+
+.tutorial_area .arrow_btn > img:nth-child(2) {
+    display: none;
+    pointer-events: none;
+}
+.tutorial_area .arrow_btn > img:nth-child(1) {
+    display: block;
+    pointer-events: auto;
+}
+
+.tutorial_area .arrow_btn.on > img:nth-child(1) {
+    display: none;
+    pointer-events: none;
+}
+.tutorial_area .arrow_btn.on > img:nth-child(2) {
+    display: block;
+    pointer-events: auto;
+}
+
+
+.tutorial_area .arrow_right {
+    position: absolute;
+    width: 108px;
+    height: 108px;
+
+    right: 36px;
+    bottom: 31px;
+}
+
+.tutorial_area .close_btn_area {
+    position: absolute;
+    top: 32px;
+    left: 865px;
+    width: 190px;
+    height: 89px;
+    flex-shrink: 0;
+}
+
+.guide_area .click_hand {
+    width: 183px;
+    height: 211px;
+    flex-shrink: 0;
+    display: block;
+    position: absolute;
+}
+
+.guide_area > img {
+    display: none;
+}
+
+.animate__guide_drag {
+    -webkit-animation-name: guide_drag;
+    animation-name: guide_drag
+}
+
+:root {
+    --move-x: 0px;
+    --move-y: 0px;
+}
+
+@-webkit-keyframes guide_drag {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--move-x)), calc(var(--move-y)), 0);
+        transform: translate3d(calc(var(--move-x)), calc(var(--move-y)), 0)
+    }
+}
+
+@keyframes guide_drag {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(calc(var(--move-x)), calc(var(--move-y)), 0);
+        transform: translate3d(calc(var(--move-x)), calc(var(--move-y)), 0)
+    }
+}

@@ -1,0 +1,45 @@
+.animate__side_off {
+    -webkit-animation-name: side_off;
+    animation-name: side_off
+}
+
+@-webkit-keyframes side_off {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(-420px, 0, 0);
+        transform: translate3d(-420px, 0, 0)
+    }
+}
+
+@keyframes side_off {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(-420px, 0, 0);
+        transform: translate3d(-420px, 0, 0)
+    }
+}
+
+.animate__side_on {
+    -webkit-animation-name: side_on;
+    animation-name: side_on
+}
+
+@-webkit-keyframes side_on {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(420px, 0, 0);
+        transform: translate3d(420px, 0, 0)
+    }
+}
+
+@keyframes side_on {
+    0% {
+    }
+    to {
+        -webkit-transform: translate3d(420px, 0, 0);
+        transform: translate3d(420px, 0, 0)
+    }
+}

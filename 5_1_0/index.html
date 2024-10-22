@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>산과 염기</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../common/css/animate-4.1.1.min.css">
+    <link rel="stylesheet" href="../common/css/font.css">
+    <link rel="stylesheet" href="../common/css/animation.css">
+    <link rel="stylesheet" href="../common/css/popup.css">
+
+    <script src="../common/js/jquery-3.7.1.min.js"></script>
+    <script src="../common/js/resize.js"></script>
+    <script src="../common/js/common.js"></script>
+    <script src="../common/js/drag_object.js"></script>
+    <script src="../common/js/animation.js"></script>
+    <script src="../common/js/tutorial.js"></script>
+    <script src="../common/js/popup.js"></script>
+
+    <link rel="stylesheet" href="./resources/css/5_1_0.css">
+    <link rel="stylesheet" href="./resources/css/5_1_0_animation.css">
+    <script src="./resources/js/5_1_0.js"></script>
+    <script src="./resources/js/5_1_0_popup.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initTutorial();
+            initDrag();
+            showDisquisitionPopup();
+            updateView();
+        });
+    </script>
+</head>
+<body class="notranslate">
+<div id="base_container" class="event-de-active no-select" >
+    <div id="mainContainer" class="base_layer main_area show event-de-active">
+        <img class="bg_img" src="./resources/images/bg.png" alt="" draggable="false">
+        <div class="dim_area">
+            <div id="hor1" class="horizontal_dim location1">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="hor2" class="horizontal_dim location2">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="hor3" class="horizontal_dim location3">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="hor4" class="horizontal_dim location4">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="ver1" class="vertical_dim location1">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="ver2" class="vertical_dim location2">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="ver3" class="vertical_dim location3">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+            <div id="ver4" class="vertical_dim location4">
+                <img class="bg_img" src="./resources/images/dim_blue_horizontal.png" alt="" draggable="false">
+                <img class="bg_img" src="./resources/images/dim_red_horizontal.png" alt="" draggable="false">
+            </div>
+        </div>
+        <div class="node_area">
+            <div class="top_node_area">
+                <div class="top_node location1">
+                    <img class="bg_img" src="./resources/images/nametag_top1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top4.png" alt="" draggable="false">
+                </div>
+                <div class="top_node location2">
+                    <img class="bg_img" src="./resources/images/nametag_top1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top4.png" alt="" draggable="false">
+                </div>
+                <div class="top_node location3">
+                    <img class="bg_img" src="./resources/images/nametag_top1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top4.png" alt="" draggable="false">
+                </div>
+                <div class="top_node location4">
+                    <img class="bg_img" src="./resources/images/nametag_top1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_top4.png" alt="" draggable="false">
+                </div>
+            </div>
+            <div class="left_node_area">
+                <div class="left_node location1">
+                    <img class="bg_img" src="./resources/images/nametag_1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_4.png" alt="" draggable="false">
+                </div>
+                <div class="left_node location2">
+                    <img class="bg_img" src="./resources/images/nametag_1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_4.png" alt="" draggable="false">
+                </div>
+                <div class="left_node location3">
+                    <img class="bg_img" src="./resources/images/nametag_1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_4.png" alt="" draggable="false">
+                </div>
+                <div class="left_node location4">
+                    <img class="bg_img" src="./resources/images/nametag_1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/nametag_4.png" alt="" draggable="false">
+                </div>
+            </div>
+            <div class="main_node_area">
+                <div class="main_node location1">
+                    <img src="./resources/images/node/node_base.png" alt="" draggable="false">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(0)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location2">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(1)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location3">
+                    <div class="btn_area event-active-pointer"  onclick="showDetailPopup(2)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location4">
+                    <div class="btn_area event-active-pointer"  onclick="showDetailPopup(3)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location5">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(4)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location6">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(5)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location7">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(6)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location8">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(7)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location9">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(8)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location10">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(9)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location11">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(10)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location12">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(11)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location13">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(12)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location14">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(13)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location15">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(14)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+                <div class="main_node location16">
+                    <div class="btn_area event-active-pointer" onclick="showDetailPopup(15)">
+                        <img class="bg_img" src="./resources/images/node/btn_zoom.png" alt="" draggable="false">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side_area">
+            <img class="bg_img" src="../common/images/btn_sidemenu_bg.png" alt="" draggable="false">
+            <div class="on_off_btn_area event-active-pointer" onclick="toggleSide()">
+                <img class="bg_img" src="../common/images/btn_sidemenu_close.png" alt="" draggable="false">
+            </div>
+            <div class="drag_area location2">
+                <div id="hovDrag01" class="node type2 location3">
+                    <img class="bg_img" src="./resources/images/node_01.png" alt="" draggable="false">
+                </div>
+                <div id="hovDrag02" class="node type3 location4">
+                    <img class="bg_img" src="./resources/images/node_02.png" alt="" draggable="false">
+                </div>
+                <div id="hovDrag03" class="node type1 location2">
+                    <img class="bg_img" src="./resources/images/litmusPaperRed.png" alt="" draggable="false">
+                </div>
+                <div id="hovDrag04" class="node type1 location1">
+                    <img class="bg_img" src="./resources/images/litmusPaperBlue.png" alt="" draggable="false">
+                </div>
+            </div>
+            <div class="drag_area location1">
+                <div class="hint_area animate__animated animate__flash animate__infinite animate__slow">
+                    <img class="bg_img" src="./resources/images/side_tooltip_drag.png" alt="" draggable="false">
+                </div>
+                <div class="next_btn_area" onclick="nextSideStep()">
+                    <img class="bg_img" src="./resources/images/btn_sidemenu_nextstep.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/btn_sidemenu_nextstep_active.png" alt="" draggable="false">
+                </div>
+                <div id="verDrag01" class="node type4 location5">
+                    <img class="bg_img" src="./resources/images/solution1.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/solution1_off.png" alt="" draggable="false">
+                </div>
+                <div id="verDrag02" class="node type4 location6">
+                    <img class="bg_img" src="./resources/images/solution2.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/solution2_off.png" alt="" draggable="false">
+                </div>
+                <div id="verDrag03" class="node type4 location7">
+                    <img class="bg_img" src="./resources/images/solution3.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/solution3_off.png" alt="" draggable="false">
+
+                </div>
+                <div id="verDrag04" class="node type4 location8">
+                    <img class="bg_img" src="./resources/images/solution4.png" alt="" draggable="false">
+                    <img class="bg_img" src="./resources/images/solution4_off.png" alt="" draggable="false">
+                </div>
+
+            </div>
+            <div class="text_info_area">
+                <div class="step_info">STEP 01</div>
+                <div class="step_page_info"><span>1</span>/2</div>
+            </div>
+        </div>
+    </div>
+    <div id="topContainer">
+        <img class="bg_img" src="./resources/images/top.png" alt="" draggable="false">
+        <div class="goal_btn_area event-active-pointer" onclick="showDisquisitionPopup();">
+            <img class="bg_img" src="../common/images/btn_top_menu_goal.png" alt="" draggable="false">
+        </div>
+        <div class="tutorial_btn_area event-active-pointer" onclick="">
+            <img class="bg_img" src="../common/images/btn_top_menu_tutorial.png" alt="" draggable="false">
+        </div>
+        <div class="reset_btn_area" onclick="showResetPopup()">
+            <img class="bg_img" src="../common/images/btn_retry.png" alt="" draggable="false">
+            <img class="bg_img" src="../common/images/btn_retry_off.png" alt="" draggable="false">
+        </div>
+    </div>
+    <div id="tutorialContainer" class="base_layer tutorial_area  event-de-active">
+        <div class="close_btn_area event-active-pointer">
+            <img class="bg_img"  src="../common/images/btn_exit_tutorial.png" alt="" draggable="false">
+        </div>
+        <div class="arrow_left arrow_btn">
+            <img class="bg_img" src="../common/images/icn_arrow_prev_off.png" alt="" draggable="false">
+            <img class="bg_img" src="../common/images/icn_arrow_prev_on.png" alt="" draggable="false">
+        </div>
+        <div class="arrow_right arrow_btn">
+            <img class="bg_img" src="../common/images/icn_arrow_next_off.png" alt="" draggable="false">
+            <img class="bg_img" src="../common/images/icn_arrow_next_on.png" alt="" draggable="false">
+        </div>
+    </div>
+    <div id="detailContainer" class="base_layer detail_area  event-de-active">
+        <div class="dim_black"></div>
+        <div class="popup_info">
+            <img class="bg_img"  src="./resources/images/popup_big_detaiil.png" alt="" draggable="false">
+            <div class="close_btn_area event-active-pointer" onclick="closeDetailPopup()">
+                <img class="bg_img"  src="./resources/images/btn_x_48_48.png" alt="" draggable="false">
+            </div>
+            <div class="image_info_area">
+
+            </div>
+            <div class="text_info_area">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>

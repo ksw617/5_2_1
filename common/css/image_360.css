@@ -1,0 +1,12 @@
+.image_360 {
+    opacity: 0;
+}
+
+.image_360.show {
+    opacity: 1;
+}
+
+.image_360.active {
+    pointer-events: auto;
+    cursor: pointer;
+}

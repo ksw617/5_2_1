@@ -1,0 +1,11 @@
+@font-face {
+    font-family: GangwonEduPower;
+    font-weight: normal;
+    font-style: normal;
+    src: local('GangwonEduPower'), url('GangwonEduPower.eot');
+    src: local('GangwonEduPower'), url('GangwonEduPower.eot') format('embedded-opentype'),
+         local('GangwonEduPower'), url('GangwonEduPower.woff2') format('woff2'),
+         local('GangwonEduPower'), url('GangwonEduPower.woff') format('woff'),
+         local('GangwonEduPower'), url('GangwonEduPower.ttf') format("truetype");
+    font-display: swap;
+} 
