@@ -420,11 +420,11 @@ let tutorial = null;
 
 function initTutorial() {
     //튜토리얼 화면 개수 만큼 숫자 지정해서 생성
-    tutorial = new Tutorial(4);
+    tutorial = new Tutorial(3);
 
     //드래그 가이드가 있는 경우
     tutorial.scenes[1].setDrag(220,385,546,167);
-    tutorial.scenes[2].setDrag(130,285,613,80);
+    //tutorial.scenes[2].setDrag(130,285,613,80);
 
     //클릭 유도 가이드가 있는 경우
     //tutorial.scenes[0].setBlink(300,300);
