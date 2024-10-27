@@ -1,4 +1,36 @@
 
+.custom_pop_up .popup_info {
+    position: absolute;
+    top: 195px;
+    left: 365px;
+    width: 1190px;
+    height: 611px;
+    flex-shrink: 0;
+}
+
+.custom_pop_up .popup_info .close_btn_area {
+    position: absolute;
+    top: 412px;
+    right: 380px;
+    width: 430px;
+    height: 99px;
+    flex-shrink: 0;
+}
+
+.main_area .active_button_area {
+    position: absolute;
+    top: 431px;
+    left: 768px;
+    width: 385px;
+    height: 132px;
+    flex-shrink: 0;
+}
+
+.main_area .active_button_area.off {
+    display: none;
+}
+
+
 .goal_area .popup_info {
     position: absolute;
     top: 245px;
@@ -92,34 +124,29 @@
     pointer-events: none;
 }
 
-.node.type1 {
-    width: 225px;
-    height: 172px;
+
+.node.type1{
+    width: 281px;
+    height: 311px;
     flex-shrink: 0;
 }
-.node.type2{
-    width: 164px;
-    height: 164px;
+.node.type2 {
+    width: 286px;
+    height: 311px;
     flex-shrink: 0;
-}
-.node.type3{
-    width: 150px;
-    height: 164px;
-    flex-shrink: 0;
-}
-.node.type4 {
-    width: 114px;
-    height: 312px;
 }
 
-.side_area .node.location1 {top: 91px;left: 80px;}
-.side_area .node.location2 {top: 277px;left: 80px;}
-.side_area .node.location3 {top: 469px;left: 110px;}
-.side_area .node.location4 {top: 670px;left: 117px;}
-.side_area .node.location5 {top: 112px;left: 62px;}
-.side_area .node.location6 {top: 112px;left: 231px;}
-.side_area .node.location7 {top: 477px;left: 62px;}
-.side_area .node.location8 {top: 477px;left: 231px;}
+.side_area .node.location1 {top: 111px;left: 51px;}
+.side_area .node.location2 {top: 505px;left: 51px;}
+
+.drop_area {
+    position: absolute;
+    top: 110px;
+    left: 646px;
+    width: 637px;
+    height: 842px;
+    background-color: #00000000;
+}
 
 
 .horizontal_dim {
