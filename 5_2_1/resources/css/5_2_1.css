@@ -1,5 +1,5 @@
 
-.custom_pop_up .popup_info {
+.info_pop_up .popup_info {
     position: absolute;
     top: 195px;
     left: 365px;
@@ -8,7 +8,7 @@
     flex-shrink: 0;
 }
 
-.custom_pop_up .popup_info .close_btn_area {
+.info_pop_up .popup_info .close_btn_area {
     position: absolute;
     top: 412px;
     right: 380px;

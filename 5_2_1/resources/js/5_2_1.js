@@ -54,13 +54,6 @@ function updateView() {
 }
 
 function updateMainView() {
-    updateMainNode();
-    updateOther();
-
-   
-}
-
-function updateOther() {
     let activeFlag = false;
     if(state.stateStep !== stateInfo.intro.value) {
         activeFlag = true;
@@ -82,6 +75,8 @@ function updateOther() {
     else {
         deActiveResetButton();
     }
+
+   
 }
 
 
@@ -189,25 +184,23 @@ function verDragCallback(id, targetId, info) {
     else
     {
         
-            state.ver[nodeIdIndex - 1] = 0;
+        state.ver[nodeIdIndex - 1] = 0;
             
-            if(nodeIdIndex === 2)
-            {
-                animationPlay.step1();
+        if(nodeIdIndex === 2)
+        {
+            animationPlay.step1();
 
-            }else
-            {
-                showCustomPopup();
-            }
-            
-            updateView();
+        }else
+        {
+            showInfoPopup();
+        }
+        
+        updateView();
        
     }
 }
 
-function updateMainNode() {
-  
-}
+
 function setMainNode(index, value) {
     let divEq= $('.main_node').eq(index);
 
@@ -268,11 +261,11 @@ let animationPlay  = {
     },
 }
 
-function showCustomPopup(){
-    $('#customPopupContainer').addClass('show_pop_up');
+function showInfoPopup(){
+    $('#infoPopupContainer').addClass('show_pop_up');
 }
-function closeCustomPopup() {
-    $('#customPopupContainer').removeClass('show_pop_up');
+function closeInfoPopup() {
+    $('#infoPopupContainer').removeClass('show_pop_up');
 }
 
 
