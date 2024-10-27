@@ -1,234 +1,170 @@
-
+// Initial States and Constants
 let stateInfo = {
-    intro: {
-        value:0,
-        animationInfo:[0,1]
-    },
-    step1: {
-        value:1,
-        animationInfo:[1,133]
-    },
-    step2: {
-        value:2,
-        animationInfo:[132,133]
-    },
-    step3: {
-        value:3,
-        animationInfo:[134,220]
-    }
-}
+    intro: { value: 0, animationInfo: [0, 1] },
+    step1: { value: 1, animationInfo: [1, 133] },
+    step2: { value: 2, animationInfo: [132, 133] },
+    step3: { value: 3, animationInfo: [134, 220] }
+};
 
+// Initial states
 let sideState = false;
-let state  = {
+let state = {
     stateStep: stateInfo.intro.value,
-    ver: [-1,-1],
-}
+    ver: [-1, -1]
+};
 
 let verDrag = [];
 
-function resetCallback() {
-    //sideHintHide();
-    initValue();
-    updateView();
-}
-
+// Callback to reset view and state
 function resetCallback() {
     initValue(true);
     updateView();
-
 }
-function initValue(flag = false) {
-    state  = {
-        stateStep: stateInfo.intro.value,
-        ver: [-1,-1],
-    }
 
-    if(flag) {
+// Initialize state values
+function initValue(flag = false) {
+    state = {
+        stateStep: stateInfo.intro.value,
+        ver: [-1, -1]
+    };
+
+    if (flag) {
         animationPlay.intro();
     }
 }
 
+// Update the main and side views
 function updateView() {
     updateMainView();
     updateSideView();
 }
 
+// Update main view based on the state
 function updateMainView() {
-    let activeFlag = false;
-    if(state.stateStep !== stateInfo.intro.value) {
-        activeFlag = true;
-    }
+    let activeFlag = (state.stateStep !== stateInfo.intro.value) || (state.ver[0] !== -1 || state.ver[1] !== -1);
 
-    if(state.ver[0] !== -1 || state.ver[1] !== -1) {
-        activeFlag = true;
-    }
-
-    if(state.stateStep === stateInfo.step2.value) {
+    if (state.stateStep === stateInfo.step2.value) {
         showActionButton();
     } else {
         hideActionButton();
     }
 
-    if(activeFlag) {
-        activeResetButton();
-    }
-    else {
-        deActiveResetButton();
-    }
-
-   
+    activeFlag ? activeResetButton() : deActiveResetButton();
 }
 
-
+// Update side view based on the state
 function updateSideView() {
-
     updateSideStep();
     updateDragNode();
 }
 
+// Update drag node visuals based on state.ver values
 function updateDragNode() {
-    for(let i = 0; i<2; i++) {
-        let verDiv = document.querySelector('#verDrag0' + (i+1));
-
-        if(state.ver[i] === -1) {
-            verDiv.classList.remove('off');
-        }
-        else {
-            verDiv.classList.add('off');
-        }
+    for (let i = 0; i < 2; i++) {
+        let verDiv = document.querySelector('#verDrag0' + (i + 1));
+        verDiv.classList.toggle('off', state.ver[i] !== -1);
     }
 }
+
+// Update side step class
 function updateSideStep() {
-
     let sideDiv = document.querySelector('.side_area');
-    sideDiv.classList.add('step' + (1));
-
+    sideDiv.classList.add('step1');
 }
 
+
+// Toggle visibility of the side panel
 function toggleSide() {
-    if(commonSound !== null) {
+    if (commonSound !== null) {
         commonSound.click();
     }
-    if(sideState) {
-        sideHide();
-    }
-    else {
-        sideShow();
-    }
+    sideState ? sideHide() : sideShow();
 }
 
-
+// Show the side panel with animations and classes
 function sideShow() {
-
     sideState = true;
-
     let sideDiv = document.querySelector('.side_area');
-    commonSideShow(sideDiv, 413, () =>{
-        $(sideDiv).addClass('on');
-        $(sideDiv).removeClass('freeze')
-    },
-    () => {
-        $(sideDiv).addClass('freeze')
-        $(sideDiv).addClass('bg_on')
-    })
+    commonSideShow(sideDiv, 413, () => {
+        $(sideDiv).addClass('on').removeClass('freeze');
+    }, () => {
+        $(sideDiv).addClass('freeze').addClass('bg_on');
+    });
 }
 
+// Hide the side panel with animations and class adjustments
 function sideHide() {
-    //sideHintHide();
     sideState = false;
-
     let sideDiv = document.querySelector('.side_area');
-    commonSideHide(sideDiv, 413, () =>{
-            $(sideDiv).removeClass('freeze')
-            $(sideDiv).removeClass('on')
-            $(sideDiv).removeClass('bg_on')
-    },
-    () => {
-        $(sideDiv).addClass('freeze')
-    })
+    commonSideHide(sideDiv, 413, () => {
+        $(sideDiv).removeClass('freeze on bg_on');
+    }, () => {
+        $(sideDiv).addClass('freeze');
+    });
 }
 
-
+// Initialize drag elements
 function initDrag() {
-    for(let i =0; i<2; i++) {
-
-        let verDiv = document.querySelector('#verDrag0' + (i+1));
-
-
+    for (let i = 0; i < 2; i++) {
+        let verDiv = document.querySelector('#verDrag0' + (i + 1));
+        
         let verDragObject = new DragObject({
             div: verDiv,
-            objectId: 'verDrag0' + (i+1),
+            objectId: 'verDrag0' + (i + 1),
             targetIds: ['drop_area'],
             callback: verDragCallback
         });
-
+        
         verDrag.push(verDragObject);
     }
 }
 
+
 function verDragCallback(id, targetId, info) {
+    if (info === -1) return; 
 
-    if(info === -1) {
-        // sideHide();
+    if (targetId === null) return; 
+
+    let nodeIdIndex = parseInt(id.split('verDrag0')[1], 10) - 1;
+
+    if (info === 1) return;
+
+    state.ver[nodeIdIndex] = 0;
+
+    if (nodeIdIndex === 1) {
+        animationPlay.step1();
+    } else {
+        showInfoPopup();
     }
 
-    if(targetId === null) {
-        return;
-    }
-
-    let nodeIdIndex = id.split('verDrag0')[1] - 0;
-
-    if(info === 1)
-    {
-    }
-    else
-    {
-        
-        state.ver[nodeIdIndex - 1] = 0;
-            
-        if(nodeIdIndex === 2)
-        {
-            animationPlay.step1();
-
-        }else
-        {
-            showInfoPopup();
-        }
-        
-        updateView();
-       
-    }
+    updateView();
 }
 
-
+// Update main node based on index and value
 function setMainNode(index, value) {
-    let divEq= $('.main_node').eq(index);
-
-    if(value === 0 ) {
-        divEq.removeClass('active');
-        divEq.find('> img').remove();
+    let divEq = $('.main_node').eq(index);
+    if (value === 0) {
+        divEq.removeClass('active').find('> img').remove();
     }
-
 }
+
 
 let tutorial = null;
 
+// Initialize tutorial scenes with specified parameters
 function initTutorial() {
-    //튜토리얼 화면 개수 만큼 숫자 지정해서 생성
-    tutorial = new Tutorial(3);
-
-    //드래그 가이드가 있는 경우
-    tutorial.scenes[1].setDrag(220,385,546,167);
-
+    tutorial = new Tutorial(3); 
+    tutorial.scenes[1].setDrag(220, 385, 546, 167); 
 }
 
+// Initialize and configure the animation
 function initAnimation() {
     animation = lottie.loadAnimation({
-        container: document.getElementById('animation_area'), // Required
+        container: document.getElementById('animation_area'),
         renderer: 'svg',
         loop: false,
         autoplay: false,
-        path: 'resources/json/ani_mixture.json' // the path to the animation json
+        path: 'resources/json/ani_mixture.json'
     });
 
     animation.addEventListener('DOMLoaded', () => {
@@ -238,14 +174,16 @@ function initAnimation() {
     animation.onComplete = animationComplete;
 }
 
-function animationComplete(e) {
-    if(state.stateStep === stateInfo.step1.value) {
+// Handle animation completion and update state
+function animationComplete() {
+    if (state.stateStep === stateInfo.step1.value) {
         state.stateStep = stateInfo.step2.value;
-        updateView();  
+        updateView();
     }
 }
 
-let animationPlay  = {
+// Play specified animation segments based on the current state
+let animationPlay = {
     intro: () => {
         state.stateStep = stateInfo.intro.value;
         animation.playSegments(stateInfo.intro.animationInfo, true);
@@ -258,17 +196,19 @@ let animationPlay  = {
     step3: () => {
         state.stateStep = stateInfo.step3.value;
         animation.playSegments(stateInfo.step3.animationInfo, true);
-    },
-}
+    }
+};
 
-function showInfoPopup(){
+// Show and hide information popup
+function showInfoPopup() {
     $('#infoPopupContainer').addClass('show_pop_up');
 }
+
 function closeInfoPopup() {
     $('#infoPopupContainer').removeClass('show_pop_up');
 }
 
-
+// Show and hide action button
 function showActionButton() {
     $('#actionButtonContainer').removeClass('off');
 }
@@ -277,8 +217,9 @@ function hideActionButton() {
     $('#actionButtonContainer').addClass('off');
 }
 
+// Play ending animation and hide action button
 function playEndingAnimation() {
-    if(commonSound !== null) {
+    if (commonSound !== null) {
         commonSound.click();
     }
     hideActionButton();

@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>모래와 자갈의 혼합물 분리하기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta http-equiv="x-ua-compatible" content="IE=edge" />
-
+    <!-- CSS -->
     <link rel="stylesheet" href="../common/css/common.css">
     <link rel="stylesheet" href="../common/css/animate-4.1.1.min.css">
     <link rel="stylesheet" href="../common/css/font.css">
     <link rel="stylesheet" href="../common/css/animation.css">
     <link rel="stylesheet" href="../common/css/popup.css">
+    <link rel="stylesheet" href="./resources/css/5_2_1.css">
 
+    <!-- JS Libraries -->
     <script src="../common/js/jquery-3.7.1.min.js"></script>
     <script src="../common/js/resize.js"></script>
     <script src="../common/js/common.js"></script>
@@ -24,99 +25,102 @@
     <script src="../common/js/tutorial.js"></script>
     <script src="../common/js/popup.js"></script>
     <script src="../common/js/lottie.min.js"></script>
-
-    <link rel="stylesheet" href="./resources/css/5_2_1.css">
- 
     <script src="./resources/js/5_2_1.js"></script>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             initTutorial();
             initDrag();
             initAnimation();
-
             showDisquisitionPopup();
             updateView();
         });
     </script>
 </head>
+
 <body class="notranslate">
-<div id="base_container" class="event-de-active no-select" >
-    <div id="mainContainer" class="base_layer main_area show event-de-active">
-        <img class="bg_img" src="./resources/images/bg.png" alt="" draggable="false">
-        <div id="animation_area" class="animation_area"></div>
-        <div  id="drop_area" class="drop_area"></div>
-        <div id="actionButtonContainer" class="active_button_area event-active-pointer off" onclick="playEndingAnimation()">
-            <img class="bg_img"  src="./resources/images/btn_action.png" alt="" draggable="false">
-        </div>
-        <div class="side_area">
-            <img class="bg_img" src="../common/images/btn_sidemenu_bg.png" alt="" draggable="false">
-            <div class="on_off_btn_area event-active-pointer" onclick="toggleSide()">
-                <img class="bg_img" src="../common/images/btn_sidemenu_close.png" alt="" draggable="false">
+    <div id="base_container" class="event-de-active no-select">
+        <!-- Main Container -->
+        <div id="mainContainer" class="base_layer main_area show event-de-active">
+            <img class="bg_img" src="./resources/images/bg.png" alt="Background" draggable="false">
+            <div id="animation_area" class="animation_area"></div>
+            <div id="drop_area" class="drop_area"></div>
+            <div id="actionButtonContainer" class="active_button_area event-active-pointer off" onclick="playEndingAnimation()">
+                <img class="bg_img" src="./resources/images/btn_action.png" alt="Action Button" draggable="false">
             </div>
-            <div class="drag_area location1">
-                <div id="verDrag01" class="node type1 location1">
-                    <img class="bg_img" src="./resources/images/big.png" alt="" draggable="false">
-                    <img class="bg_img" src="./resources/images/big_off.png" alt="" draggable="false">
+            
+            <!-- Side Area -->
+            <div class="side_area">
+                <img class="bg_img" src="../common/images/btn_sidemenu_bg.png" alt="Side Menu Background" draggable="false">
+                <div class="on_off_btn_area event-active-pointer" onclick="toggleSide()">
+                    <img class="bg_img" src="../common/images/btn_sidemenu_close.png" alt="Close Button" draggable="false">
                 </div>
-                <div id="verDrag02" class="node type2 location2">
-                    <img class="bg_img" src="./resources/images/small.png" alt="" draggable="false">
-                    <img class="bg_img" src="./resources/images/small_off.png" alt="" draggable="false">
+                
+                <!-- Drag Area -->
+                <div class="drag_area location1">
+                    <div id="verDrag01" class="node type1 location1">
+                        <img class="bg_img" src="./resources/images/big.png" alt="Big Node" draggable="false">
+                        <img class="bg_img" src="./resources/images/big_off.png" alt="Big Node Off" draggable="false">
+                    </div>
+                    <div id="verDrag02" class="node type2 location2">
+                        <img class="bg_img" src="./resources/images/small.png" alt="Small Node" draggable="false">
+                        <img class="bg_img" src="./resources/images/small_off.png" alt="Small Node Off" draggable="false">
+                    </div>
                 </div>
+            </div>
+        </div>
 
+        <!-- Top Container -->
+        <div id="topContainer">
+            <img class="bg_img" src="./resources/images/top.png" alt="Top Background" draggable="false">
+            <div class="goal_btn_area event-active-pointer" onclick="showDisquisitionPopup();">
+                <img class="bg_img" src="../common/images/btn_top_menu_goal.png" alt="Goal Button" draggable="false">
+            </div>
+            <div class="tutorial_btn_area event-active-pointer">
+                <img class="bg_img" src="../common/images/btn_top_menu_tutorial.png" alt="Tutorial Button" draggable="false">
+            </div>
+            <div class="reset_btn_area" onclick="showResetPopup()">
+                <img class="bg_img" src="../common/images/btn_retry.png" alt="Retry Button" draggable="false">
+                <img class="bg_img" src="../common/images/btn_retry_off.png" alt="Retry Button Off" draggable="false">
             </div>
         </div>
-    </div>
-    <div id="topContainer">
-        <img class="bg_img" src="./resources/images/top.png" alt="" draggable="false">
-        <div class="goal_btn_area event-active-pointer" onclick="showDisquisitionPopup();">
-            <img class="bg_img" src="../common/images/btn_top_menu_goal.png" alt="" draggable="false">
-        </div>
-        <div class="tutorial_btn_area event-active-pointer" onclick="">
-            <img class="bg_img" src="../common/images/btn_top_menu_tutorial.png" alt="" draggable="false">
-        </div>
-        <div class="reset_btn_area" onclick="showResetPopup()">
-            <img class="bg_img" src="../common/images/btn_retry.png" alt="" draggable="false">
-            <img class="bg_img" src="../common/images/btn_retry_off.png" alt="" draggable="false">
-        </div>
-    </div>
-    <div id="tutorialContainer" class="base_layer tutorial_area  event-de-active">
-        <div class="close_btn_area event-active-pointer">
-            <img class="bg_img"  src="../common/images/btn_exit_tutorial.png" alt="" draggable="false">
-        </div>
-        <div class="arrow_left arrow_btn">
-            <img class="bg_img" src="../common/images/icn_arrow_prev_off.png" alt="" draggable="false">
-            <img class="bg_img" src="../common/images/icn_arrow_prev_on.png" alt="" draggable="false">
-        </div>
-        <div class="arrow_right arrow_btn">
-            <img class="bg_img" src="../common/images/icn_arrow_next_off.png" alt="" draggable="false">
-            <img class="bg_img" src="../common/images/icn_arrow_next_on.png" alt="" draggable="false">
-        </div>
-    </div>
-    <div id="detailContainer" class="base_layer detail_area  event-de-active">
-        <div class="dim_black"></div>
-        <div class="popup_info">
-            <img class="bg_img"  src="./resources/images/popup_big_detaiil.png" alt="" draggable="false">
-            <div class="close_btn_area event-active-pointer" onclick="closeDetailPopup()">
-                <img class="bg_img"  src="./resources/images/btn_x_48_48.png" alt="" draggable="false">
-            </div>
-            <div class="image_info_area">
 
+        <!-- Tutorial Container -->
+        <div id="tutorialContainer" class="base_layer tutorial_area event-de-active">
+            <div class="close_btn_area event-active-pointer">
+                <img class="bg_img" src="../common/images/btn_exit_tutorial.png" alt="Exit Tutorial" draggable="false">
             </div>
-            <div class="text_info_area">
+            <div class="arrow_left arrow_btn">
+                <img class="bg_img" src="../common/images/icn_arrow_prev_off.png" alt="Previous Arrow" draggable="false">
+                <img class="bg_img" src="../common/images/icn_arrow_prev_on.png" alt="Previous Arrow On" draggable="false">
+            </div>
+            <div class="arrow_right arrow_btn">
+                <img class="bg_img" src="../common/images/icn_arrow_next_off.png" alt="Next Arrow" draggable="false">
+                <img class="bg_img" src="../common/images/icn_arrow_next_on.png" alt="Next Arrow On" draggable="false">
+            </div>
+        </div>
 
+        <!-- Detail Container -->
+        <div id="detailContainer" class="base_layer detail_area event-de-active">
+            <div class="dim_black"></div>
+            <div class="popup_info">
+                <img class="bg_img" src="./resources/images/popup_big_detaiil.png" alt="Detail Popup" draggable="false">
+                <div class="close_btn_area event-active-pointer" onclick="closeDetailPopup()">
+                    <img class="bg_img" src="./resources/images/btn_x_48_48.png" alt="Close Button" draggable="false">
+                </div>
+                <div class="image_info_area"></div>
+                <div class="text_info_area"></div>
+            </div>
+        </div>
+
+        <!-- Info Popup Container -->
+        <div id="infoPopupContainer" class="info_pop_up base_layer event-de-active">
+            <div class="dim_black"></div>
+            <div class="popup_info">
+                <img class="bg_img" src="./resources/images/info_popup.png" alt="Info Popup" draggable="false">
+                <div class="close_btn_area event-active-pointer" onclick="closeInfoPopup()"></div>
             </div>
         </div>
     </div>
-
-    <div id="infoPopupContainer" class="info_pop_up base_layer event-de-active">
-        <div class="dim_black"></div>
-        <div class="popup_info">
-            <img class="bg_img"  src="./resources/images/info_popup.png" alt="" draggable="false">
-            <div class="close_btn_area event-active-pointer" onclick="closeInfoPopup()">
-            </div>
-        </div>
-    </div>
-</div>
 </body>
+</html>
