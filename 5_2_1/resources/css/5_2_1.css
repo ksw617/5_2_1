@@ -1,4 +1,3 @@
-/* Popup Info Styles */
 .info_pop_up .popup_info {
     position: absolute;
     top: 195px;
@@ -17,7 +16,6 @@
     flex-shrink: 0;
 }
 
-/* Active Button Area */
 .main_area .active_button_area {
     position: absolute;
     top: 431px;
@@ -31,7 +29,6 @@
     display: none;
 }
 
-/* Goal Area Popup */
 .goal_area .popup_info {
     position: absolute;
     top: 245px;
@@ -50,7 +47,6 @@
     flex-shrink: 0;
 }
 
-/* Side Area */
 .main_area .side_area {
     position: absolute;
     top: 70px;
@@ -64,13 +60,16 @@
     opacity: 0;
 }
 
-.main_area .side_area.bg_on > .bg_img,
-.main_area .side_area.bg_on > .drag_area {
+.main_area .side_area.bg_on > .bg_img {
     opacity: 1;
 }
 
 .main_area .side_area > .drag_area {
     opacity: 0;
+}
+
+.main_area .side_area.bg_on > .drag_area {
+    opacity: 1;
 }
 
 .main_area .side_area.on {
@@ -86,16 +85,15 @@
     flex-shrink: 0;
 }
 
-.main_area .side_area.on .on_off_btn_area > img,
-.side_area.freeze .node {
+.main_area .side_area.on .on_off_btn_area > img {
     display: none;
 }
 
-.main_area .side_area.freeze .on_off_btn_area {
+.main_area .side_area.freeze .on_off_btn_area,
+.side_area.freeze .node {
     pointer-events: none;
 }
 
-/* Node Styles */
 .node {
     position: absolute;
     pointer-events: auto;
@@ -122,18 +120,25 @@
 .node.type1 {
     width: 281px;
     height: 311px;
+    flex-shrink: 0;
 }
 
 .node.type2 {
     width: 286px;
     height: 311px;
+    flex-shrink: 0;
 }
 
-/* Node Locations */
-.side_area .node.location1 { top: 111px; left: 51px; }
-.side_area .node.location2 { top: 505px; left: 51px; }
+.side_area .node.location1 {
+    top: 111px;
+    left: 51px;
+}
 
-/* Drop Area */
+.side_area .node.location2 {
+    top: 505px;
+    left: 51px;
+}
+
 .drop_area {
     position: absolute;
     top: 110px;
@@ -143,7 +148,6 @@
     background-color: transparent;
 }
 
-/* Drag Area */
 .side_area .drag_area {
     position: absolute;
     top: 0;
@@ -158,7 +162,6 @@
     display: block;
 }
 
-/* Text Info Area */
 .side_area .text_info_area {
     position: absolute;
     top: 0;
@@ -194,13 +197,13 @@
     color: #2C83EA;
 }
 
-/* Hint Area */
 .side_area .hint_area {
     position: absolute;
     bottom: 74px;
     right: 0;
     width: 244px;
     height: 98px;
+    flex-shrink: 0;
     display: none;
 }
 
@@ -208,13 +211,13 @@
     display: block;
 }
 
-/* Next Button Area */
 .side_area .next_btn_area {
     position: absolute;
     bottom: 0;
     right: 67px;
     width: 110px;
     height: 84px;
+    flex-shrink: 0;
     pointer-events: none;
     cursor: pointer;
 }
@@ -231,7 +234,6 @@
     display: block;
 }
 
-/* Reset Button Area */
 .main_area .reset_btn_area {
     position: absolute;
     bottom: 22px;
@@ -258,20 +260,24 @@
     display: none;
 }
 
-/* Goal and Tutorial Button Areas */
-.main_area .goal_btn_area,
-.main_area .tutorial_btn_area {
+.main_area .goal_btn_area {
     position: absolute;
     top: 7px;
+    right: 247px;
     width: 177px;
     height: 58px;
     flex-shrink: 0;
 }
 
-.main_area .goal_btn_area { right: 247px; }
-.main_area .tutorial_btn_area { right: 40px; }
+.main_area .tutorial_btn_area {
+    position: absolute;
+    top: 7px;
+    right: 40px;
+    width: 177px;
+    height: 58px;
+    flex-shrink: 0;
+}
 
-/* Main Node Area */
 .main_node_area .main_node {
     width: 172px;
     height: 172px;
@@ -303,7 +309,7 @@
     left: 742px;
 }
 
-/* Detail Area Popup */
+
 .detail_area .popup_info {
     position: absolute;
     top: 130px;
@@ -345,4 +351,4 @@
     font-family: NanumSquareRound;
     font-size: 48px;
     font-weight: 800;
-}
+}  
